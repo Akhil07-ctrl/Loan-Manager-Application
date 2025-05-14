@@ -1,0 +1,99 @@
+.register-form {
+    width: 90%;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .register-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-form input {
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .register-form button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 12px;
+    transition: background-color 0.3s;
+  }
+  
+  .register-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .register-form .error {
+    color: #d8000c;
+    background-color: #ffbaba;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .register-form .success {
+    color: #4f8a10;
+    background-color: #dff2bf;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .register-form p {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  .register-form p a, .register-form p .link {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .register-form p a:hover, .register-form p .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ----------- Responsive Styling ----------- */
+  
+  /* Small devices (phones) */
+  @media screen and (max-width: 480px) {
+    .register-form {
+      padding: 20px;
+      margin-top: 40px;
+    }
+  
+    .register-form input,
+    .register-form button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .register-form {
+      padding: 25px;
+    }
+  
+    .register-form input,
+    .register-form button {
+      font-size: 15px;
+    }
+  }
+  

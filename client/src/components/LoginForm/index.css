@@ -1,0 +1,86 @@
+.login-form {
+    width: 90%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .login-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input {
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .login-form button {
+    padding: 12px;
+    margin-top: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-form p {
+    margin-top: 12px;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .login-form p a, .login-form p .link {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .login-form p a:hover, .login-form p .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ----------- Responsive Styling ----------- */
+  
+  /* Small screens */
+  @media screen and (max-width: 480px) {
+    .login-form {
+      padding: 20px;
+      margin-top: 50px;
+    }
+  
+    .login-form input,
+    .login-form button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  /* Tablets */
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .login-form {
+      padding: 25px;
+      margin-top: 60px;
+    }
+  
+    .login-form input,
+    .login-form button {
+      font-size: 15px;
+    }
+  }
+  

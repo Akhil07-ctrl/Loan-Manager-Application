@@ -1,0 +1,702 @@
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2196F3;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  background-color: #ffebee;
+  border: 1px solid #ef5350;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message button {
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  opacity: 0.8;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-title {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #757575;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.stats-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.loan-status-breakdown, .recent-activity {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-bars {
+  margin-top: 15px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.status-label {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+}
+
+.status-icon.approved {
+  color: #4CAF50;
+}
+
+.status-icon.pending {
+  color: #FF9800;
+}
+
+.status-icon.rejected {
+  color: #F44336;
+}
+
+.status-bar-container {
+  flex: 1;
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 0 15px;
+}
+
+.status-bar {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.status-bar.approved {
+  background-color: #4CAF50;
+}
+
+.status-bar.pending {
+  background-color: #FF9800;
+}
+
+.status-bar.rejected {
+  background-color: #F44336;
+}
+
+.status-count {
+  font-weight: bold;
+  width: 30px;
+  text-align: right;
+}
+
+.recent-loans-list, .recent-users-list {
+  margin-top: 15px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .recent-loans-list, .recent-users-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .recent-loans-list, .recent-users-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.recent-loan-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.recent-loan-item:last-child {
+  border-bottom: none;
+}
+
+.loan-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.loan-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.loan-details {
+  text-align: right;
+}
+
+.loan-amount {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.pending {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.status-badge.rejected {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.no-data {
+  color: #757575;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Loans List Styles */
+.loans-list-container, .users-list-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loans-header, .users-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .loans-header, .users-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.loans-header h2, .users-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.loans-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .loans-controls {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.loans-controls select,
+.loans-controls input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+.loans-controls button {
+  padding: 8px 16px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.loans-controls button:hover {
+  background: #1976D2;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-container {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  width: 250px;
+  font-size: 0.9rem;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: #e0e0e0;
+}
+
+.filter-dropdown {
+  position: relative;
+}
+
+.filter-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-button:hover {
+  background-color: #e0e0e0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.filter-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #f5f5f5;
+}
+
+.loans-table-container, .users-table-container {
+  overflow-x: auto;
+}
+
+.loans-table, .users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.loans-table th, .loans-table td,
+.users-table th, .users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.loans-table th, .users-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #333;
+}
+
+.loans-table tr:hover, .users-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: #2196F3;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.action-button:hover {
+  color: #0d47a1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.pagination-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.no-loans, .no-users {
+  text-align: center;
+  padding: 30px;
+  color: #757575;
+}
+
+/* Loan Modal Styles */
+.loan-modal {
+  max-width: 700px;
+  width: 90%;
+}
+
+.loan-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.detail-item {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.detail-item h4 {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #757575;
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.full-width {
+  grid-column: span 3;
+}
+
+.process-loan-form {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.process-loan-form h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.status-options {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.status-button {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.status-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-button.approve:hover:not(:disabled) {
+  background-color: #e8f5e9;
+  border-color: #4CAF50;
+  color: #2e7d32;
+}
+
+.status-button.reject:hover:not(:disabled) {
+  background-color: #ffebee;
+  border-color: #F44336;
+  color: #c62828;
+}
+
+.status-button.active.approve {
+  background-color: #e8f5e9;
+  border-color: #4CAF50;
+  color: #2e7d32;
+}
+
+.status-button.active.reject {
+  background-color: #ffebee;
+  border-color: #F44336;
+  color: #c62828;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.secondary-button, .primary-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.secondary-button {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.primary-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.primary-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner-small {
+  animation: spin 1s linear infinite;
+  margin-right: 5px;
+}
+
+/* User List Specific Styles */
+.user-avatar {
+  font-size: 1.5rem;
+  color: #2196F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.role-badge.admin {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.role-badge.user {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+.status-indicator {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-indicator.active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-indicator.inactive {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+@media (max-width: 768px) {
+  .stats-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .loans-header, .users-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .loans-controls {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .loan-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .full-width {
+    grid-column: span 1;
+  }
+}

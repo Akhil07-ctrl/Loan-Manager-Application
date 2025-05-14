@@ -1,0 +1,141 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #c0ccdf;
+    color: rgb(13, 13, 13);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.header ul li {
+    margin-left: 20px;
+}
+
+.header ul li a, .header ul li .nav-link {
+    color: rgb(13, 13, 13);
+    text-decoration: none;
+    font-size: 16px;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header ul li a:hover, .header ul li .nav-link:hover {
+    opacity: 0.8;
+}
+
+.nav-icon {
+    font-size: 1.2rem;
+}
+
+/* For backward compatibility with any remaining images */
+.header .middle-nav li a img,
+.header .middle-nav li .nav-link img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 16px 20px;
+    }
+
+    .header ul li {
+        margin-left: 15px;
+    }
+
+    .header ul li a,
+    .header ul li .nav-link {
+        font-size: 15px;
+    }
+
+    .nav-icon {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Landscape Styles */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .middle-nav {
+        order: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .right-nav {
+        order: 1;
+        margin-left: auto;
+    }
+
+    .header ul li {
+        margin-left: 12px;
+    }
+
+    .header ul li:first-child {
+        margin-left: 0;
+    }
+}
+
+/* Mobile Portrait Styles */
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+
+    .middle-nav {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .header ul li {
+        margin-left: 8px;
+    }
+
+    .header ul li a,
+    .header ul li .nav-link {
+        font-size: 14px;
+        gap: 4px;
+    }
+
+    .nav-icon {
+        font-size: 1rem;
+    }
+
+    .right-nav {
+        gap: 12px;
+    }
+}
