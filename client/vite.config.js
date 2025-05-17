@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://loan-manager-server-aizb.onrender.com',
+        target: 'https://loan-manager-application.onrender.com',
         changeOrigin: true,
         secure: false,
         configure: (proxy) => {
