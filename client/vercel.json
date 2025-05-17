@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/api/:path*",
-            "destination": "https://loan-manager-server-aizb.onrender.com/api/:path*"
+            "destination": "https://loan-manager-application.onrender.com/api/:path*"
         },
         {
             "source": "/(.*)",
